@@ -1,0 +1,25 @@
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Character Animator.exe
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Character Animator.deps.json
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Character Animator.runtimeconfig.json
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Character Animator.dll
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Character Animator.pdb
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator_MarkupCompile.cache
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator_MarkupCompile.lref
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.g.resources
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.AssemblyInfoInputs.cache
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.AssemblyInfo.cs
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.dll
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\refint\Character Animator.dll
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.pdb
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.genruntimeconfig.cache
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\ref\Character Animator.dll
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\RenameDialog.baml
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\RenameDialog.g.cs
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Character Animator.csproj.AssemblyReference.cache
+C:\Users\Jacob\source\repos\Character Animator\Character Animator\obj\Debug\net8.0-windows\Characte.21ACF0C6.Up2Date
