@@ -18,6 +18,7 @@
             <TextBox x:Name="FrameHeightBox" Width="50" Text="64"/>
             <CheckBox x:Name="MirrorSelectBox" Content="Mirror Select" Margin="10,0,0,0" IsChecked="True"/>
             <CheckBox x:Name="ReducedSpriteSet" Content="Reduced Sprite Set" Margin="10,0,0,0" IsChecked="True"/>
+            <CheckBox x:Name="eventFrameBrush" Content="Event Frame" Margin="10, 0, 0, 0" IsChecked="false"/>
         </StackPanel>
 
         <!-- Animation list panel docked to the left -->
@@ -49,7 +50,7 @@
                      Columns="16"/>
         </ScrollViewer>
 
-        <!-- (Optional) Other content fills remaining space on the left -->
+        <!-- Other content fills remaining space on the left -->
         <Border Background="Transparent"/>
     </DockPanel>
 </Window>

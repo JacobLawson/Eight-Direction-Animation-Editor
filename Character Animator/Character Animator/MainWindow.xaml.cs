@@ -32,6 +32,12 @@ namespace Character_Animator
         public bool reduced { get; set; }
     }
 
+    public struct FrameSelection
+    {
+        public bool Selected;
+        public bool Event;
+    }
+
     public partial class MainWindow : Window
     {
         private BitmapImage spriteSheet;
@@ -81,6 +87,7 @@ namespace Character_Animator
 
             int gridWidth = columns * frameWidth;
             FrameGrid.Width = gridWidth;
+            FrameGrid.Columns = columns;
 
             frameGridData = new Border[rows, columns];
 
@@ -161,7 +168,7 @@ namespace Character_Animator
                         BorderBrush = Brushes.Transparent,
                         Margin = new Thickness(2),
                         Child = frameDetailsGrid,
-                        Tag = false // not selected initially
+                        Tag = new FrameSelection { Selected = false, Event = false } // not selected initially
                     };
 
                     frameGridData[y, x] = border;
@@ -202,14 +209,18 @@ namespace Character_Animator
 
         private void ToggleFrameSelection(Border b, int relativeAngleIndex)
         {
-            bool isSelected = b.Tag is bool selected && selected;
+            FrameSelection data = (FrameSelection)b.Tag;
+            bool isSelected = data.Selected;
 
             int angle = relativeAngleIndex * 45;
 
             if (isSelected)
             {
                 // Deselect
-                b.Tag = false;
+                data.Selected = false;
+                data.Event = false;
+                b.Tag = data;
+
                 b.BorderBrush = Brushes.Transparent;
 
                 if (angleBuffer.ContainsKey(angle))
@@ -218,8 +229,11 @@ namespace Character_Animator
             else
             {
                 // Select
-                b.Tag = true;
-                b.BorderBrush = Brushes.Red;
+                data.Selected = true;
+                data.Event = eventFrameBrush.IsChecked == true;
+                b.Tag = data;
+
+                b.BorderBrush = data.Event ? Brushes.Green : Brushes.Red;
 
                 if (!angleBuffer.ContainsKey(angle))
                     angleBuffer[angle] = new List<Border>();
@@ -288,7 +302,9 @@ namespace Character_Animator
                     Border b = frameGridData[y, x];
                     if (b != null)
                     {
-                        b.Tag = false;
+                        FrameSelection data = b.Tag is FrameSelection fs ? fs : new FrameSelection();
+                        data.Selected = false;
+                        b.Tag = data;
                         b.BorderBrush = Brushes.Transparent;
 
                         if (b.Child is Grid g)
@@ -415,8 +431,19 @@ namespace Character_Animator
                     angleBuffer[kvp.Key] = new List<Border>();
                     foreach (var border in kvp.Value)
                     {
-                        border.Tag = true;
-                        border.BorderBrush = Brushes.Red;
+                        FrameSelection data;
+                        if (border.Tag is FrameSelection existing)
+                        {
+                            data = existing;
+                        }
+                        else
+                        {
+                            data = new FrameSelection();
+                        }
+                        data.Selected = true;
+
+                        border.Tag = data;
+                        border.BorderBrush = data.Event ? Brushes.Green : Brushes.Red;
                         angleBuffer[kvp.Key].Add(border);
                     }
                 }
@@ -506,7 +533,10 @@ namespace Character_Animator
                             {
                                 if (frameGridData[y, x] == border)
                                 {
-                                    coordList.Add($"[{x},{y}]");
+                                    var data = (FrameSelection)border.Tag;
+                                    int eventFlag = data.Event ? 1 : 0;
+
+                                    coordList.Add($"[{x},{y},{eventFlag}]");
                                     goto NextBorder;
                                 }
                             }
@@ -575,17 +605,26 @@ namespace Character_Animator
                         var borders = new List<Border>();
                         foreach (var coords in frameList)
                         {
-                            if (coords.Count != 2)
+                            if (coords.Count < 2)
                                 continue;
 
                             int x = coords[0];
                             int y = coords[1];
+                            bool isEvent = coords.Count > 2 && coords[2] == 1;
 
                             if (y >= 0 && y < frameGridData.GetLength(0) && x >= 0 && x < frameGridData.GetLength(1))
                             {
                                 var border = frameGridData[y, x];
                                 if (border != null)
                                 {
+                                    border.Tag = new FrameSelection
+                                    {
+                                        Selected = true,
+                                        Event = isEvent
+                                    };
+
+                                    border.BorderBrush = isEvent ? Brushes.Green : Brushes.Red;
+
                                     borders.Add(border);
                                 }
                             }
